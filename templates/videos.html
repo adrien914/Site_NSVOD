@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container jumbotron">
+        <div class="row">
+            {% for video in videos %}
+                <p>https://www.youtube.com/embed/{{ video.link }} : <iframe class="col-4" style="height:200px" src="https://www.youtube.com/embed/{{ video.link }}"></iframe>
+                    <form action="/videos/remove" class="form-group" method="POST">
+                        <input hidden type="text" name="link" id="link" value="{{ video.link }}">
+                        <input class="form-control col-12 btn btn-danger" type="submit" value="Supprimer">
+                    </form>
+                </p>
+            {% endfor %}
+            <form action="" class="form-group" method="POST">
+                <input class="form-control col-12" type="text" name="link" id="link" placeholder="put your video link here">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+

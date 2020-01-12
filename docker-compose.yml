@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  site_ns_vod:
+    image: site_ns_vod
+    build: .
+    ports:
+      - 8080:8080
+    volumes: 
+      - "./:/app"
